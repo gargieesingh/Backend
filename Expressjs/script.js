@@ -9,18 +9,29 @@ const express = require('express');
 //And we store that functions in const express
 
 const app = express();
-//express func call will return a object, and we are storing that object in app
+//express func call will return an object, and we are storing that object in app
 
 
 //routes(routes is the part of url, which is after domain e.g. in facebook.com/profiles , /profiles is a route) create krna 
 
 //routes tells konse page pr kya dikhega
 //function(req, res) --> request handler, middleware
+
+
+app.use(function(req, res, next){
+    console.log('Middleware Chala');
+    next();
+});
+app.use(function(req, res, next){
+    console.log('Middleware Chala ek aur baar');
+    next();
+});
+
 app.get('/', function(req, res){
-    res.send('Hello World!');
+    res.send('/ page hai ye');
 })
 app.get('/profile', function(req, res){
-    res.send("How are you?");
+    res.send("profile page hai ye");
 })
 
 
