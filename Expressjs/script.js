@@ -17,6 +17,9 @@ const app = express();
 //routes tells konse page pr kya dikhega
 //function(req, res) --> request handler, middleware
 
+app.use(express.json()); //json based data ko readable krti hai
+app.use(express.urlencoded({extended: true}));
+
 
 app.use(function(req, res, next){
     console.log('Middleware Chala');
