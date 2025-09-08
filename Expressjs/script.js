@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 
 //require() --> hey node modules, bring me the code-base from that package/module so that I can use it here
 
@@ -27,12 +27,22 @@ app.use(function(req, res, next){
     next();
 });
 
+//upper two were req and res handler middleware
+
 app.get('/', function(req, res){
     res.send('/ page hai ye');
 })
-app.get('/profile', function(req, res){
+app.get('/profile', function(req, res, next){
+    return next(new Error("Something went wrong")) //this goes on console
     res.send("profile page hai ye");
 })
+app.get('/trial', function(req, res){
+    res.send('trail page hai ye');
+})
 
-
+//error handler ( special middleware )
+app.use((err, req, res, next) =>{
+    console.error(err.stack);
+    res.status(500).send('Something went wrong! We dont know what'); //as it is a response , it goes on frontend 
+})
 app.listen(3000);
