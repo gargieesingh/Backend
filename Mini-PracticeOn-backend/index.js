@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const path = require('path');
+const path = require('path'); //path package is already installed in nodejs
 
 //parsers
 app.use(express.json());
@@ -20,6 +20,13 @@ app.set('view engine', 'ejs'); //backend will render(view) --> ejs pages
 app.get("/", function(req, res){
     // res.render("chachi"); //chachi is a page which should present in views
     res.render("index"); //dont write full name as already set up ejs as view engine
+})
+app.get("/profile/:username/:age", function(req, res){
+    res.send(`
+        <pre>
+        Welcome ${req.params.username}
+        Your age is : ${req.params.age}
+        </pre>`);
 })
 
 app.listen(3000, ()=>{
