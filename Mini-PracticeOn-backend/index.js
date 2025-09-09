@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //using css , images, vanilla js for setting up public static files
+
 app.use(express.static(path.join(__dirname, 'public'))); 
 //sari static files(images, vdos, stylesheets, vanilla js) ko dudhne k liye public me jana
 //__dirname --> name (or path) of the folder we are working on
