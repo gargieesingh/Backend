@@ -17,6 +17,11 @@ app.get('/read', async (req, res)=>{
     res.render('read', {allUsers: allUsers});
 })
 
+app.get('/delete/:id', async (req,res)=>{
+    let users = await userModel.findOneAndDelete({_id: req.params.id});
+    res.redirect("/read");
+})
+
 app.post('/create', async (req,res)=>{
     let{name, email, image} = req.body;
     let Createduser = await userModel.create({
@@ -24,7 +29,7 @@ app.post('/create', async (req,res)=>{
         email,
         image
     })
-    res.send(Createduser);
+    res.redirect("/read");
 })
 
 

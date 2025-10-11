@@ -8,13 +8,26 @@
 </head>
 <body>
     <div class="w-scree h-screen bg-zinc-900 text-white p-10">
-        <form action="/" class="flex flex-wrap gap-5">
-            <input type="text"  placeholder="Name" class="px-10 py-3 bg-zinc-700 rounded-xl">
-            <input type="text"  placeholder="Email" class="px-10 py-3 bg-zinc-700 rounded-xl">
-            <input type="text" name="" placeholder="Image URL" class="px-10 py-3 bg-zinc-700 rounded-xl">
 
-            <input type="submit" name="CREATE USER" placeholder="CREATE USER" class="px-5 py-2 bg-blue-800 rounded-xl text-white cursor-pointer hover:scale(0.98)">
+        <nav class="mb-10">
+            <a href="/read" class="text-blue-600 hover:underline">Read Users</a>
+        </nav>
+        <h1 class="text-3xl font-bold mb-1">CREATE USER</h1>
+        <hr class="mb-3">
+
+        <form action="/create" method="post" class="flex flex-col flex-wrap gap-5">
+            <div class="flex overflow-x-hidden flex-col gap-5 w-[50%] p-5 lg:w-[30%]">
+                <input type="text"  placeholder="Name" class="px-10 py-3 bg-zinc-700 rounded-xl border-2 border-zinc-800 " name="name">
+
+                <input type="text"  placeholder="Email" class="px-10 py-3 border-2 border-zinc-800 bg-zinc-700 rounded-xl" name="email">
+
+                <input type="text" placeholder="Image URL" class="px-10 py-3 border-2 border-zinc-800 bg-zinc-700 rounded-xl" name="image">
+                </div>
+
+            <input type="submit" value="CREATE" class="w-[25%] lg:w-[15%] px-5 py-2 bg-blue-800 rounded-xl text-white cursor-pointer hover:scale-90 transition-transform duration-300 mx-5">
         </form>
+
+
     </div>
 
 </body>
