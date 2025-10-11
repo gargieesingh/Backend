@@ -16,33 +16,28 @@
         <hr class="mb-3">
         <div class="users h-[100%] w-full flex flex-row flex-wrap gap-3">
 
-            <div class="user h-80 w-60 bg-zinc-800 rounded-xl p-2">
-                <div class="bg-zinc-700 h-[70%] w-full rounded-xl mb-2"></div>
-                <p class="name font-bold">Gargie Singh</p>
-                <p class="email text-gray-400">gargiesingh@gmail.com</p>
-                <div class="controls flex justify-between my-2">
-                    <div class="edit text-white  bg-zinc-600 rounded-xs px-2 hover:scale-95 cursor-pointer ">
-                        Edit User
-                    </div>
-                    <div class="delete bg-red-900 text-white rounded-xs px-2 hover:scale-95 cursor-pointer">
-                        Delete User
-                    </div>
-                </div>
-            </div>
+           <% allUsers.forEach(user => { %>
+                <div class="user h-80 w-60 bg-zinc-800 rounded-xl p-2">
 
-            <div class="user h-80 w-60 bg-zinc-800 rounded-xl p-2">
-                <div class="bg-zinc-700 h-[70%] w-full rounded-xl mb-2"></div>
-                <p class="name font-bold">Gargie Singh</p>
-                <p class="email text-gray-400">gargiesingh@gmail.com</p>
-                <div class="controls flex justify-between my-2">
-                    <div class="edit text-white  bg-zinc-600 rounded-xs px-2 hover:scale-95 cursor-pointer ">
-                        Edit User
+                    <div class="bg-zinc-700 h-[70%] w-full rounded-xl mb-2">
+                        <img src="<%= allUsers.image %>" class="w-full h-full object-top object-cover">
                     </div>
-                    <div class="delete bg-red-900 text-white rounded-xs px-2 hover:scale-95 cursor-pointer">
-                        Delete User
-                    </div>
+
+                    <p class="name font-bold"><%= allUsers.name %></p>
+
+                    <p class="email text-gray-400"><%= allUsers.email %></p>
+
+                    <div class="controls flex justify-between my-2">
+                        <div class="edit text-white  bg-zinc-600 rounded-xs px-2 hover:scale-95 cursor-pointer ">
+                            Edit User
+                        </div>
+                        <div class="delete bg-red-900 text-white rounded-xs px-2 hover:scale-95 cursor-pointer">
+                            Delete User
+                        </div>
+
                 </div>
             </div>
+           <% })%> 
 
         </div>
     </div>
